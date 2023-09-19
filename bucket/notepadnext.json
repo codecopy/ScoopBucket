@@ -1,0 +1,41 @@
+{
+    "version": "0.6.3",
+    "description": "A cross-platform reimplementation of Notepad++",
+    "homepage": "https://github.com/dail8859/NotepadNext",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/dail8859/NotepadNext/releases/download/v0.6.3/NotepadNext-v0.6.3-win64.zip",
+            "hash": "34f3e2da8820812e6863a7ef911db661d1a2ce03e3cb0de33b0458495193c038"
+        }
+    },
+	"post_install": [
+        "$exepath = \"$dir\\NotepadNext.exe\".Replace('\\', '\\\\')",
+        "'install-context.reg', 'uninstall-context.reg' | ForEach-Object {",
+        "    if (Test-Path \"$bucketsdir\\codecopy\\scripts\\$app\\$_\") {",
+        "        $content = Get-Content \"$bucketsdir\\codecopy\\scripts\\$app\\$_\"",
+        "        $content = $content.Replace('$notepadnext', $exepath)",
+        "        if ($global) {",
+        "            $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE')",
+        "        }",
+        "    }",
+        "    $content | Set-Content -Path \"$dir\\$_\" -Encoding ascii",
+        "}",
+		"if ($cmd -eq 'install') { reg import \"$dir\\install-context.reg\" }"
+    ],
+    "pre_uninstall": "if ($cmd -eq 'uninstall') { reg import \"$dir\\uninstall-context.reg\" }",
+    "shortcuts": [
+        [
+            "NotepadNext.exe",
+            "Notepad Next"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/dail8859/NotepadNext/releases/download/v$version/NotepadNext-v$version-win64.zip"
+            }
+        }
+    }
+}
