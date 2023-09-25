@@ -1,15 +1,19 @@
 {
-    "version": "4.0.1",
+    "version": "4.2.4.2",
     "description": "国产软件FinalShell SSH工具,服务器管理,远程桌面加速软件,支持Windows,macOS,Linux",
     "homepage": "https://www.hostbuf.com/t/988.html",
     "license": "Freeware",
     "notes": "https://github.com/codecopy/ScoopBucket/blob/master/bucket/finalshell.json",
     "url": "http://www.hostbuf.com/downloads/finalshell_install.exe#/dl.7z",
-    "hash": "e0853bcb09aec5274537125a36974ad6d91042fb3e19b5d03c23742dd961d5e2",
+    "hash": "a581f35183f67a1b59c81e700ebd6e3639924f1afed3b22ccf305b0dfcbf55b1",
     "pre_install": [
         "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
         "if (!(Test-Path \"$persist_dir\\config.json\")) { New-Item \"$dir\\config.json\" | Out-Null }",
         "if (!(Test-Path \"$persist_dir\\tconfig.json\")) { New-Item \"$dir\\tconfig.json\" | Out-Null }"
+    ],
+    "post_install": [
+        "Invoke-Expression -Command \"$dir\\unpack200.exe -r $dir\\finalshell_win.pack.gz $dir\\finalshell.jar\"",
+        "Invoke-Expression -Command \"$dir\\unpack200.exe -r $dir\\lib-run\\bcprov.pack.gz $dir\\lib-run\\bcprov.jar\""
     ],
     "shortcuts": [
         [
