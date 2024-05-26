@@ -1,19 +1,19 @@
 {
-    "version": "0.7.2.8",
+    "version": "1.0.0.0-beta.07-net6-x64-nightly-20240509-1b9f5a",
     "description": "One Remote Access Manager to Rule Them All",
     "homepage": "https://1remote.github.io/",
     "license": "GPL-3.0-or-later",
-    "notes": "config location: C:\\Users\\<your username>\\AppData\\Local\\PRemoteM\nconfig location: C:\\Users\\<your username>\\\\AppData\\\\Roaming\\PRemoteM - https://github.com/ViCrack/scoop-bucket/blob/master/bucket/1remote.json",
+    "notes": "config location: C:\\Users\\<your username>\\AppData\\Local\\1Remote\nconfig location: C:\\Users\\<your username>\\\\AppData\\\\Roaming\\1Remote - https://github.com/codecopy/ScoopBucket/blob/master/bucket/1remote.json",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/1Remote/1Remote/releases/download/0.7.2.8/PRemoteM.zip",
-            "hash": "2c3bb69e165249681225283e8208573c2e6691467ff1b83e99eb475837b6d36e"
+            "url": "https://github.com/1Remote/1Remote/releases/download/Nightly/1Remote-1.0.0.0-beta.07-net6-x64-nightly-20240509-1b9f5a.zip",
+            "hash": "4355f3146f8fe052e0c46f3c52f3606a350c98c5c48f36bc243d16d233c8e243"
         }
     },
     "shortcuts": [
         [
-            "PRemoteM.exe",
-            "PRemoteM"
+            "1Remote.exe",
+            "1Remote"
         ]
     ],
     "checkver": {
@@ -27,3 +27,4 @@
         }
     }
 }
+
